@@ -50,52 +50,57 @@ function App() {
     <div className="App">
       <Toaster position="bottom-center" reverseOrder={false} />
       <Router>
-        <Routes>
-          <Route path="/" element={<Main />}>
-            <Route index element={<PropertyList />} />
-            <Route path="propertylist/:id" element={<PropertyListing />} />
+  <Routes>
+    <Route path="/" element={<Main />}>
+      <Route index element={<PropertyList />} />
+    </Route>
 
-            <Route path="login" element={<Login />} />
-            <Route path="signup" element={<Signup />} />
-            <Route path="profile" element={<Profile />} />
-            <Route
-              path="editprofile"
-              element={user ? <EditProfile /> : <Navigate to="/login" />}
-            />
+    <Route path="/propertylist/:id" element={<PropertyListing />} />
 
-            <Route path="ai-trip-planner" element={<AiTripPlanner />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/signup" element={<Signup />} />
+    <Route path="/profile" element={<Profile />} />
 
-            <Route path="accomodation" element={<Accomodation />} />
-            <Route path="accomodationform" element={<AccomodationForm />} />
+    <Route
+      path="/editprofile"
+      element={user ? <EditProfile /> : <Navigate to="/login" />}
+    />
 
-            <Route path="user/forgotPassword" element={<ForgetPassword />} />
-            <Route
-              path="user/resetPassword/:token"
-              element={<ResetPassword />}
-            />
-            <Route
-              path="user/updatepassword"
-              element={user ? <UpdatePassword /> : <Navigate to="/login" />}
-            />
+    <Route path="/ai-trip-planner" element={<AiTripPlanner />} />
 
-            <Route
-              path="user/mybookings"
-              element={user ? <MyBookings /> : <Navigate to="/login" />}
-            />
-            <Route
-              path="user/mybookings/:bookingId"
-              element={user ? <BookingDetails /> : <Navigate to="/login" />}
-            />
+    <Route path="/accomodation" element={<Accomodation />} />
+    <Route path="/accomodationform" element={<AccomodationForm />} />
 
-            <Route
-              path="payment/:propertyId"
-              element={user ? <Payment /> : <Navigate to="/login" />}
-            />
+    <Route path="/user/forgotPassword" element={<ForgetPassword />} />
 
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </Router>
+    <Route
+      path="/user/resetPassword/:token"
+      element={<ResetPassword />}
+    />
+
+    <Route
+      path="/user/updatepassword"
+      element={user ? <UpdatePassword /> : <Navigate to="/login" />}
+    />
+
+    <Route
+      path="/user/mybookings"
+      element={user ? <MyBookings /> : <Navigate to="/login" />}
+    />
+
+    <Route
+      path="/user/mybookings/:bookingId"
+      element={user ? <BookingDetails /> : <Navigate to="/login" />}
+    />
+
+    <Route
+      path="/payment/:propertyId"
+      element={user ? <Payment /> : <Navigate to="/login" />}
+    />
+
+    <Route path="*" element={<NotFound />} />
+  </Routes>
+</Router>
     </div>
   );
 }
